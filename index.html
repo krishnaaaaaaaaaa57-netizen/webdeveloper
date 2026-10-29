@@ -1,0 +1,954 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>WebsiteDesignerUrvish | Websites That Grow Businesses</title>
+<meta name="description" content="WebsiteDesignerUrvish creates modern, responsive and professional websites for businesses and creators.">
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+
+:root {
+  --blue: #635bff;
+  --purple: #a855f7;
+  --ink: #17172b;
+  --muted: #6f7186;
+  --line: #e9e9f3;
+  --bg: #fafaff;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; scroll-padding-top: 90px; }
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  background: var(--bg);
+  color: var(--ink);
+  overflow-x: hidden;
+}
+
+button, input, select { font: inherit; }
+button, a { -webkit-tap-highlight-color: transparent; }
+a { color: inherit; text-decoration: none; }
+
+::selection { background: #dcd9ff; color: #28205f; }
+
+.container { width: min(1160px, 90%); margin: auto; }
+
+nav {
+  height: 78px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  padding: 0 5%;
+  background: rgba(255,255,255,.82);
+  backdrop-filter: blur(18px);
+  border-bottom: 1px solid rgba(230,230,245,.8);
+}
+
+.logo {
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 700;
+  font-size: 21px;
+  letter-spacing: -1px;
+}
+
+.logo span { color: var(--blue); }
+
+.navlinks { display: flex; gap: 30px; align-items: center; }
+.navlinks a { font-size: 14px; color: #55566c; transition: .25s; }
+.navlinks a:hover { color: var(--blue); }
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  border: none;
+  border-radius: 12px;
+  padding: 14px 22px;
+  font-weight: 700;
+  font-size: 14px;
+  cursor: pointer;
+  transition: transform .25s, box-shadow .25s, background .25s;
+}
+
+.btn:hover { transform: translateY(-3px); }
+
+.btn-primary {
+  background: linear-gradient(120deg, var(--blue), #8c52ed);
+  color: white;
+  box-shadow: 0 9px 25px #635bff32;
+}
+
+.btn-primary:hover { box-shadow: 0 14px 34px #635bff48; }
+.btn-light { background: white; color: var(--ink); border: 1px solid var(--line); }
+
+.hero {
+  min-height: 690px;
+  padding: 105px 0 85px;
+  position: relative;
+  overflow: hidden;
+  background:
+    radial-gradient(ellipse at 5% 15%, #e7e5ff 0, transparent 38%),
+    radial-gradient(ellipse at 92% 45%, #f1e6ff 0, transparent 32%),
+    linear-gradient(180deg, #fcfcff, #f8f8ff);
+}
+
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1.08fr .92fr;
+  align-items: center;
+  gap: 55px;
+  position: relative;
+  z-index: 2;
+}
+
+.pill {
+  display: inline-flex;
+  gap: 9px;
+  align-items: center;
+  padding: 9px 14px;
+  border-radius: 50px;
+  border: 1px solid #e2dfff;
+  background: #ffffffb8;
+  color: #5e51d7;
+  font-size: 12px;
+  font-weight: 700;
+  margin-bottom: 27px;
+}
+
+.dot {
+  width: 8px; height: 8px; border-radius: 50%;
+  background: #25c887;
+  box-shadow: 0 0 0 4px #25c88720;
+}
+
+h1, h2, h3 { font-family: 'Space Grotesk', sans-serif; }
+
+.hero h1 {
+  font-size: clamp(43px, 5.4vw, 72px);
+  line-height: 1.08;
+  letter-spacing: -3.8px;
+  margin-bottom: 24px;
+}
+
+.gradient-text {
+  background: linear-gradient(105deg, #635bff, #a855f7 65%, #e66aa7);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.hero-copy {
+  max-width: 520px;
+  font-size: 16px;
+  line-height: 1.9;
+  color: var(--muted);
+  margin-bottom: 30px;
+}
+
+.hero-actions { display: flex; gap: 13px; flex-wrap: wrap; }
+
+.trust {
+  margin-top: 35px;
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.avatar-stack { display: flex; padding-left: 4px; }
+.avatar {
+  width: 32px; height: 32px; margin-left: -5px;
+  border: 2px solid white; border-radius: 50%;
+  display: grid; place-items: center; font-size: 12px;
+  background: linear-gradient(140deg,#dedaff,#f5d8ff);
+}
+
+.trust strong { color: var(--ink); }
+
+.visual { position: relative; padding: 20px 0; }
+
+.browser {
+  position: relative;
+  border-radius: 22px;
+  border: 1px solid #e5e4f3;
+  background: white;
+  box-shadow: 0 35px 90px #574ac51b, 0 5px 20px #17172b0b;
+  overflow: hidden;
+  animation: float 6s ease-in-out infinite;
+}
+
+.browser-top {
+  display: flex; align-items: center; gap: 6px;
+  padding: 15px 17px; border-bottom: 1px solid #eeeef5;
+}
+
+.bcircle { width: 9px; height: 9px; border-radius: 50%; background: #ffb9b9; }
+.bcircle:nth-child(2) { background: #ffda8c; }
+.bcircle:nth-child(3) { background: #8ce6b5; }
+
+.address {
+  margin-left: 12px; border-radius: 6px; background: #f5f5fb;
+  color: #9999ac; padding: 6px 12px; font-size: 10px; flex: 1;
+}
+
+.mock-page {
+  padding: 26px 24px 28px;
+  background: linear-gradient(140deg,#fff,#f8f7ff);
+}
+
+.mock-nav { display: flex; justify-content: space-between; font-size: 10px; font-weight: 700; margin-bottom: 35px; }
+.mock-nav span:last-child { color: var(--blue); }
+
+.mock-tag { color: #8176ed; font-size: 9px; font-weight: 700; letter-spacing: 1px; }
+.mock-page h3 { font-size: clamp(24px,3vw,38px); line-height: 1.12; margin: 12px 0; letter-spacing: -1.5px; }
+.mock-page p { color: #82839a; font-size: 10px; line-height: 1.8; max-width: 260px; }
+.mock-cta { display: inline-block; background: #635bff; color: white; font-size: 9px; padding: 10px 13px; border-radius: 6px; margin-top: 17px; }
+
+.mock-art {
+  height: 150px; margin-top: 25px; border-radius: 14px;
+  background: linear-gradient(130deg,#d9d5ff,#e8d5ff 50%,#f9dbe9);
+  position: relative; overflow: hidden;
+}
+
+.mock-art::before {
+  content: ''; position: absolute; width: 130px; height: 130px;
+  border-radius: 40px; background: linear-gradient(135deg,#8b7bff,#c38aff);
+  transform: rotate(35deg); top: 20px; left: 18%;
+  box-shadow: 28px 15px 40px #795cf344;
+}
+
+.mock-art::after {
+  content: 'DESIGN'; position: absolute; right: 20px; bottom: 22px;
+  font: 700 25px 'Space Grotesk'; color: #ffffffb5;
+  letter-spacing: 2px;
+}
+
+.float-card {
+  position: absolute; z-index: 3;
+  background: white; padding: 15px 18px; border-radius: 14px;
+  box-shadow: 0 15px 40px #27205c19; border: 1px solid #efedf9;
+  animation: float 5s ease-in-out infinite;
+}
+
+.float-card small { color: var(--muted); font-size: 10px; }
+.float-card strong { display: block; font-size: 18px; margin-top: 4px; }
+.card-one { top: -2px; right: -25px; }
+.card-two { bottom: 1px; left: -32px; animation-delay: -2s; }
+.card-two strong { color: #24b77c; }
+
+.blob {
+  position: absolute; border-radius: 50%; filter: blur(2px);
+  pointer-events: none; animation: drift 10s ease-in-out infinite alternate;
+}
+.blob-one { width: 180px; height: 180px; background: #b9b3ff33; top: 10%; right: 4%; }
+.blob-two { width: 110px; height: 110px; background: #f4c3e533; bottom: 4%; left: 40%; animation-delay: -4s; }
+
+.stats {
+  display: grid; grid-template-columns: repeat(4,1fr);
+  background: white; border: 1px solid var(--line);
+  border-radius: 20px; padding: 28px 15px;
+  box-shadow: 0 15px 45px #17172b06;
+  margin-top: -35px; position: relative; z-index: 5;
+}
+
+.stat { text-align: center; padding: 10px; border-right: 1px solid var(--line); }
+.stat:last-child { border: 0; }
+.stat strong { font: 700 31px 'Space Grotesk'; letter-spacing: -1px; }
+.stat p { color: var(--muted); font-size: 12px; margin-top: 6px; }
+
+.section { padding: 110px 0; }
+.section-head { text-align: center; max-width: 650px; margin: 0 auto 52px; }
+.eyebrow { color: var(--blue); font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; }
+.section-head h2 { font-size: clamp(32px,4vw,47px); letter-spacing: -2px; margin: 15px 0; }
+.section-head p { color: var(--muted); font-size: 14px; line-height: 1.9; }
+
+.services { display: grid; grid-template-columns: repeat(3,1fr); gap: 22px; }
+.service {
+  background: white; padding: 30px; border: 1px solid var(--line);
+  border-radius: 20px; transition: .35s; position: relative; overflow: hidden;
+}
+.service:hover { transform: translateY(-9px); border-color: #c9c3ff; box-shadow: 0 22px 55px #635bff12; }
+.service-icon {
+  display: grid; place-items: center; width: 52px; height: 52px;
+  border-radius: 15px; background: #efedff; color: var(--blue);
+  font-size: 24px; margin-bottom: 23px;
+}
+.service:nth-child(2) .service-icon { background: #f8eaff; color: #a34be5; }
+.service:nth-child(3) .service-icon { background: #e4fbf1; color: #16996c; }
+.service h3 { font-size: 20px; margin-bottom: 12px; }
+.service p { font-size: 13px; line-height: 1.9; color: var(--muted); }
+
+.about-grid { display: grid; grid-template-columns: .8fr 1.2fr; gap: 75px; align-items: center; }
+.about-art {
+  min-height: 350px; border-radius: 26px;
+  background: radial-gradient(circle at 30% 20%,#fff 0,transparent 32%),
+  linear-gradient(135deg,#dedaff,#e8d5ff,#f9dbe9);
+  display: grid; place-items: center; position: relative; overflow: hidden;
+}
+.about-art .big-u {
+  font: 700 190px 'Space Grotesk'; letter-spacing: -20px;
+  background: linear-gradient(135deg,#635bff,#c263df);
+  -webkit-background-clip: text; background-clip: text; color: transparent;
+  animation: pulse 4s ease-in-out infinite;
+}
+.about-copy h2 { font-size: clamp(32px,4vw,46px); letter-spacing: -2px; margin: 14px 0 22px; }
+.about-copy p { color: var(--muted); line-height: 1.95; font-size: 14px; margin-bottom: 17px; }
+.checks { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-top: 24px; }
+.checks span { font-size: 12px; font-weight: 600; }
+.checks span::before { content: '✓'; color: #25b980; margin-right: 8px; font-weight: 700; }
+
+.process { background: white; }
+.steps { display: grid; grid-template-columns: repeat(3,1fr); gap: 25px; }
+.step { padding: 28px; border-radius: 18px; background: #fafaff; border: 1px solid var(--line); }
+.step-num { font: 700 35px 'Space Grotesk'; color: #b9b4ff; }
+.step h3 { margin: 18px 0 10px; font-size: 19px; }
+.step p { color: var(--muted); font-size: 13px; line-height: 1.8; }
+
+.cta {
+  padding: 65px 45px; text-align: center; border-radius: 28px;
+  background: radial-gradient(circle at 10% 10%,#8175ff,transparent 40%),
+  linear-gradient(120deg,#29235f,#5746b7);
+  color: white; position: relative; overflow: hidden;
+}
+.cta h2 { font-size: clamp(31px,4vw,48px); letter-spacing: -2px; margin-bottom: 16px; }
+.cta p { color: #e0ddff; font-size: 14px; line-height: 1.8; margin-bottom: 27px; }
+.cta .btn { background: white; color: #4236a6; }
+
+footer { padding: 35px 5%; border-top: 1px solid var(--line); background: white; }
+.footer-row { display: flex; justify-content: space-between; gap: 20px; align-items: center; flex-wrap: wrap; }
+footer p { font-size: 12px; color: var(--muted); }
+.owner-link { font-size: 10px; color: #a4a4b6; transition: .2s; }
+.owner-link:hover { color: var(--blue); }
+
+/* Enquiry and owner dashboard */
+.modal {
+  position: fixed; inset: 0; z-index: 300;
+  display: none; align-items: center; justify-content: center;
+  padding: 20px; background: #17172b80; backdrop-filter: blur(8px);
+}
+.modal.open { display: flex; animation: fadeIn .25s ease; }
+.modal-box {
+  width: min(510px,100%); max-height: 90vh; overflow-y: auto;
+  background: white; border-radius: 23px; padding: 30px;
+  box-shadow: 0 25px 100px #17172b40; animation: popIn .35s ease;
+}
+.modal-head { display: flex; justify-content: space-between; gap: 15px; align-items: start; margin-bottom: 24px; }
+.modal-head h2 { font-size: 27px; letter-spacing: -1px; }
+.modal-head p { color: var(--muted); font-size: 12px; margin-top: 7px; line-height: 1.7; }
+.close {
+  border: 0; background: #f3f3fa; width: 35px; height: 35px;
+  border-radius: 10px; cursor: pointer; flex-shrink: 0; font-size: 20px;
+}
+.field { margin-bottom: 18px; }
+.field label { display: block; font-size: 12px; font-weight: 700; margin-bottom: 8px; }
+.field input, .field select {
+  width: 100%; border: 1px solid #e3e3ef; border-radius: 11px;
+  padding: 13px 14px; outline: none; background: #fdfdff; color: var(--ink);
+  transition: .2s;
+}
+.field input:focus, .field select:focus { border-color: var(--blue); box-shadow: 0 0 0 3px #635bff16; }
+.phone-row { display: grid; grid-template-columns: 115px 1fr; gap: 9px; }
+.field small { display: block; color: var(--muted); margin-top: 7px; font-size: 10px; }
+.full { width: 100%; }
+.notice { font-size: 11px; line-height: 1.7; color: var(--muted); margin-top: 13px; }
+.success { display: none; padding: 15px; border-radius: 12px; background: #e9fbf3; color: #117b52; font-size: 13px; line-height: 1.7; margin-bottom: 15px; }
+
+.dashboard-box { width: min(900px,100%); }
+.dashboard-stats { display: grid; grid-template-columns: repeat(3,1fr); gap: 10px; margin: 20px 0; }
+.dash-stat { background: #f6f5ff; border-radius: 12px; padding: 15px; }
+.dash-stat strong { display: block; font: 700 26px 'Space Grotesk'; }
+.dash-stat span { color: var(--muted); font-size: 11px; }
+.enquiry-list { display: grid; gap: 12px; }
+.enquiry-card { border: 1px solid var(--line); border-radius: 13px; padding: 17px; }
+.enquiry-card h3 { font-size: 16px; margin-bottom: 8px; }
+.enquiry-card p { font-size: 12px; color: var(--muted); line-height: 1.8; overflow-wrap: anywhere; }
+.enquiry-card .delete { margin-top: 10px; border: 0; background: #fff0f0; color: #c03939; padding: 8px 11px; border-radius: 8px; cursor: pointer; font-size: 11px; }
+.empty { text-align: center; color: var(--muted); padding: 35px 15px; border: 1px dashed #d8d7e8; border-radius: 14px; font-size: 13px; }
+.dash-toolbar { display:flex; justify-content:space-between; gap:12px; align-items:center; flex-wrap:wrap; margin:20px 0; }
+.btn-small { padding: 10px 13px; font-size: 12px; }
+.hidden { display: none !important; }
+
+.reveal { opacity: 0; transform: translateY(28px); transition: opacity .8s ease, transform .8s ease; }
+.reveal.visible { opacity: 1; transform: translateY(0); }
+
+@keyframes float { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-12px); } }
+@keyframes drift { from { transform: translate(0,0) scale(1); } to { transform: translate(25px,-25px) scale(1.12); } }
+@keyframes pulse { 0%,100% { transform: scale(1); } 50% { transform: scale(1.05); } }
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+@keyframes popIn { from { opacity: 0; transform: translateY(15px) scale(.98); } to { opacity: 1; transform: translateY(0) scale(1); } }
+
+@media (max-width: 850px) {
+  .hero-grid { grid-template-columns: 1fr; gap: 55px; }
+  .hero { padding-top: 75px; }
+  .visual { max-width: 520px; width: 90%; margin: auto; }
+  .services { grid-template-columns: 1fr 1fr; }
+  .about-grid { grid-template-columns: 1fr; gap: 35px; }
+  .about-art { min-height: 250px; }
+  .about-art .big-u { font-size: 150px; }
+  .steps { grid-template-columns: 1fr; }
+  .card-one { right: -15px; }
+  .card-two { left: -15px; }
+}
+
+@media (max-width: 560px) {
+  nav { height: 68px; }
+  .logo { font-size: 18px; }
+  .navlinks { gap: 14px; }
+  .navlinks a { font-size: 12px; }
+  .navlinks a:nth-child(2) { display: none; }
+  .nav-cta { display: none; }
+  .hero h1 { letter-spacing: -2px; }
+  .hero-copy { font-size: 14px; }
+  .hero-actions .btn { padding: 13px 15px; }
+  .stats { grid-template-columns: 1fr 1fr; margin-top: -20px; }
+  .stat:nth-child(2) { border-right: 0; }
+  .stat:nth-child(-n+2) { border-bottom: 1px solid var(--line); }
+  .stat strong { font-size: 27px; }
+  .section { padding: 75px 0; }
+  .services { grid-template-columns: 1fr; }
+  .checks { grid-template-columns: 1fr; }
+  .cta { padding: 48px 22px; }
+  .modal-box { padding: 23px 19px; }
+  .dashboard-stats { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+
+<body>
+
+<nav>
+  <a href="#home" class="logo">WebsiteDesigner<span>Urvish.</span></a>
+  <div class="navlinks">
+    <a href="#services">Services</a>
+    <a href="#about">About</a>
+    <a href="#process">Process</a>
+    <button class="btn btn-primary nav-cta" onclick="openEnquiry()">Let's Talk ↗</button>
+  </div>
+</nav>
+
+<header class="hero" id="home">
+  <div class="blob blob-one"></div>
+  <div class="blob blob-two"></div>
+
+  <div class="container hero-grid">
+    <div>
+      <div class="pill"><span class="dot"></span> YOUR IDEAS. OUR DIGITAL CRAFT.</div>
+
+      <h1>We build websites that make your business <span class="gradient-text">stand out.</span></h1>
+
+      <p class="hero-copy">
+        Hey, I'm Urvish Pratap Singh. I create modern, beautiful and
+        responsive websites that help businesses build their online
+        presence and turn visitors into customers.
+      </p>
+
+      <div class="hero-actions">
+        <button class="btn btn-primary" onclick="openEnquiry()">Start Your Project ↗</button>
+        <a href="#services" class="btn btn-light">Explore Services ↓</a>
+      </div>
+
+      <div class="trust">
+        <div class="avatar-stack">
+          <span class="avatar">✦</span>
+          <span class="avatar">U</span>
+          <span class="avatar">✧</span>
+          <span class="avatar">+</span>
+        </div>
+        <div><strong>Let's build something great.</strong><br>Designed around your business.</div>
+      </div>
+    </div>
+
+    <div class="visual">
+      <div class="float-card card-one">
+        <small>Creative development</small>
+        <strong>100% Custom</strong>
+      </div>
+
+      <div class="browser">
+        <div class="browser-top">
+          <span class="bcircle"></span><span class="bcircle"></span><span class="bcircle"></span>
+          <div class="address">yourbusiness.com</div>
+        </div>
+        <div class="mock-page">
+          <div class="mock-nav"><span>YOUR BRAND.</span><span>HOME &nbsp; ABOUT &nbsp; CONTACT</span></div>
+          <span class="mock-tag">A BETTER DIGITAL EXPERIENCE</span>
+          <h3>Make your next<br>big idea happen.</h3>
+          <p>Beautifully designed digital experiences made to help your business grow.</p>
+          <span class="mock-cta">DISCOVER MORE ↗</span>
+          <div class="mock-art"></div>
+        </div>
+      </div>
+
+      <div class="float-card card-two">
+        <small>Every detail matters</small>
+        <strong>✦ Made with care</strong>
+      </div>
+    </div>
+  </div>
+</header>
+
+<div class="container">
+  <div class="stats reveal">
+    <div class="stat"><strong>500<span class="gradient-text">+</span></strong><p>Happy clients*</p></div>
+    <div class="stat"><strong>100<span class="gradient-text">%</span></strong><p>Custom designs</p></div>
+    <div class="stat"><strong>24<span class="gradient-text">/7</span></strong><p>Online presence</p></div>
+    <div class="stat"><strong>∞</strong><p>Creative possibilities</p></div>
+  </div>
+  <p style="font-size:10px;color:#9999ac;text-align:center;margin-top:10px">*500+ is placeholder marketing copy. Publish it as a real client count only if verified.</p>
+</div>
+
+<section class="section" id="services">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow">What I do</span>
+      <h2>Everything you need to <span class="gradient-text">go digital.</span></h2>
+      <p>From your first idea to a polished online presence, let's create something your customers will remember.</p>
+    </div>
+
+    <div class="services">
+      <article class="service reveal">
+        <div class="service-icon">✳</div>
+        <h3>Business Websites</h3>
+        <p>Professional websites for local businesses, agencies, shops and startups that want to earn trust online.</p>
+      </article>
+
+      <article class="service reveal">
+        <div class="service-icon">◈</div>
+        <h3>Creative Web Design</h3>
+        <p>Modern layouts, beautiful typography, smooth animations and memorable experiences tailored to your brand.</p>
+      </article>
+
+      <article class="service reveal">
+        <div class="service-icon">↗</div>
+        <h3>Responsive Websites</h3>
+        <p>Websites designed to look great across mobile phones, tablets and desktop screens.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="about" style="background:white">
+  <div class="container about-grid">
+    <div class="about-art reveal"><span class="big-u">U.</span></div>
+
+    <div class="about-copy reveal">
+      <span class="eyebrow">A little about me</span>
+      <h2>Hi, I'm <span class="gradient-text">Urvish.</span></h2>
+      <p>I'm Urvish Pratap Singh, a web designer and aspiring developer passionate about turning ideas into beautiful digital experiences.</p>
+      <p>My goal is to help businesses and individuals get a website that reflects their identity, communicates clearly and works smoothly across devices.</p>
+      <p>Whether you're starting a new business or upgrading your current website, let's bring your idea to life.</p>
+
+      <div class="checks">
+        <span>Modern design</span>
+        <span>Mobile-friendly layouts</span>
+        <span>Smooth animations</span>
+        <span>Business-focused approach</span>
+      </div>
+
+      <button class="btn btn-primary" style="margin-top:28px" onclick="openEnquiry()">Work With Me ↗</button>
+    </div>
+  </div>
+</section>
+
+<section class="section process" id="process">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow">Simple process</span>
+      <h2>From idea to <span class="gradient-text">online.</span></h2>
+      <p>A clear, straightforward process to get your website project moving.</p>
+    </div>
+
+    <div class="steps">
+      <article class="step reveal">
+        <div class="step-num">01</div>
+        <h3>Tell me your idea</h3>
+        <p>Submit your contact details through the enquiry form so we can discuss your website requirements.</p>
+      </article>
+      <article class="step reveal">
+        <div class="step-num">02</div>
+        <h3>Design & build</h3>
+        <p>We discuss the scope, design direction, features and timeline before starting development.</p>
+      </article>
+      <article class="step reveal">
+        <div class="step-num">03</div>
+        <h3>Launch your website</h3>
+        <p>After testing, approval and the agreed arrangements, your website is ready to go online.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="cta reveal">
+      <h2>Have an idea? Let's make it real.</h2>
+      <p>Your next website could be the beginning of something amazing.<br>Tell me how to contact you and let's start the conversation.</p>
+      <button class="btn" onclick="openEnquiry()">Send an Enquiry ↗</button>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-row">
+    <a href="#home" class="logo">WebsiteDesigner<span>Urvish.</span></a>
+    <p>© <span id="year"></span> WebsiteDesignerUrvish. All rights reserved.</p>
+    <button class="owner-link" onclick="openOwnerLogin()">Owner access</button>
+  </div>
+</footer>
+
+<!-- CUSTOMER ENQUIRY -->
+<div class="modal" id="enquiryModal" role="dialog" aria-modal="true" aria-labelledby="enquiryTitle">
+  <div class="modal-box">
+    <div class="modal-head">
+      <div>
+        <h2 id="enquiryTitle">Let's connect<span class="gradient-text">.</span></h2>
+        <p>Share your contact details and I'll have a way to get in touch.</p>
+      </div>
+      <button class="close" onclick="closeModal('enquiryModal')" aria-label="Close">×</button>
+    </div>
+
+    <div class="success" id="enquirySuccess" role="status"></div>
+
+    <form id="enquiryForm">
+      <div class="field">
+        <label for="countryCode">Country code</label>
+        <select id="countryCode" required>
+          <option value="+91">🇮🇳 India (+91)</option>
+          <option value="+1">🇺🇸 United States (+1)</option>
+          <option value="+44">🇬🇧 United Kingdom (+44)</option>
+          <option value="+971">🇦🇪 UAE (+971)</option>
+          <option value="+61">🇦🇺 Australia (+61)</option>
+          <option value="+1-CA">🇨🇦 Canada (+1)</option>
+          <option value="+65">🇸🇬 Singapore (+65)</option>
+          <option value="other">Other country code</option>
+        </select>
+      </div>
+
+      <div class="field hidden" id="otherCodeField">
+        <label for="otherCode">Enter country code</label>
+        <input id="otherCode" type="text" placeholder="+XX" pattern="\\+[0-9]{1,4}">
+      </div>
+
+      <div class="field">
+        <label for="mobile">Mobile number</label>
+        <input id="mobile" type="tel" inputmode="numeric" autocomplete="tel-national"
+          placeholder="Enter your mobile number" pattern="[0-9]{7,15}" maxlength="15" required>
+        <small>Numbers only, without spaces or dashes.</small>
+      </div>
+
+      <div class="field">
+        <label for="email">Email address</label>
+        <input id="email" type="email" list="emailSuggestions" autocomplete="email"
+          placeholder="you@example.com" maxlength="254" required>
+        <datalist id="emailSuggestions">
+          <option value="@gmail.com">
+          <option value="@outlook.com">
+          <option value="@yahoo.com">
+          <option value="@hotmail.com">
+        </datalist>
+        <small>Start typing your email. Suggestions may depend on your browser.</small>
+      </div>
+
+      <button class="btn btn-primary full" type="submit" id="submitEnquiry">Send Enquiry ↗</button>
+      <p class="notice">By submitting, you agree that your contact details may be used to respond to your enquiry. In this demo, details are saved only in this browser.</p>
+    </form>
+  </div>
+</div>
+
+<!-- OWNER LOGIN -->
+<div class="modal" id="ownerModal" role="dialog" aria-modal="true" aria-labelledby="ownerTitle">
+  <div class="modal-box" style="max-width:410px">
+    <div class="modal-head">
+      <div>
+        <h2 id="ownerTitle">Owner login<span class="gradient-text">.</span></h2>
+        <p>Demo dashboard access.</p>
+      </div>
+      <button class="close" onclick="closeModal('ownerModal')" aria-label="Close">×</button>
+    </div>
+
+    <form id="ownerLoginForm">
+      <div class="field">
+        <label for="ownerPassword">Password</label>
+        <input type="password" id="ownerPassword" placeholder="Enter dashboard password" required>
+      </div>
+      <p id="loginError" style="color:#c03939;font-size:12px;margin-bottom:14px" aria-live="polite"></p>
+      <button class="btn btn-primary full" type="submit">Open Dashboard ↗</button>
+      <p class="notice">This frontend password is not secure for a live website. Use server-side authentication before launch.</p>
+    </form>
+  </div>
+</div>
+
+<!-- OWNER DASHBOARD -->
+<div class="modal" id="dashboardModal" role="dialog" aria-modal="true" aria-labelledby="dashboardTitle">
+  <div class="modal-box dashboard-box">
+    <div class="modal-head">
+      <div>
+        <h2 id="dashboardTitle">Owner dashboard<span class="gradient-text">.</span></h2>
+        <p>Customer enquiries saved in this browser.</p>
+      </div>
+      <button class="close" onclick="closeDashboard()" aria-label="Close">×</button>
+    </div>
+
+    <div class="dashboard-stats">
+      <div class="dash-stat"><strong id="totalCount">0</strong><span>Total enquiries</span></div>
+      <div class="dash-stat"><strong id="todayCount">0</strong><span>Received today</span></div>
+      <div class="dash-stat"><strong id="latestCount">—</strong><span>Latest enquiry</span></div>
+    </div>
+
+    <div class="dash-toolbar">
+      <strong style="font-size:15px">Customer enquiries</strong>
+      <button class="btn btn-light btn-small" onclick="exportEnquiries()">Export CSV ↓</button>
+    </div>
+
+    <div class="enquiry-list" id="enquiryList"></div>
+
+    <div style="display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;margin-top:20px">
+      <button class="btn btn-light btn-small" onclick="clearEnquiries()">Clear all demo data</button>
+      <button class="btn btn-primary btn-small" onclick="closeDashboard()">Done</button>
+    </div>
+    <p class="notice">Demo limitation: enquiries are stored on this browser only. They will not automatically appear on another device or browser.</p>
+  </div>
+</div>
+
+<script>
+// DEMO SETTINGS
+// This password is visible in the page source. Do not use this
+// frontend login to protect real customer information.
+const OWNER_PASSWORD = "change-this-password";
+const STORAGE_KEY = "websiteDesignerUrvishDemoEnquiries";
+
+document.getElementById("year").textContent = new Date().getFullYear();
+
+function getEnquiries() {
+  try {
+    const data = JSON.parse(localStorage.getItem(STORAGE_KEY) || "[]");
+    return Array.isArray(data) ? data : [];
+  } catch {
+    return [];
+  }
+}
+
+function saveEnquiries(data) {
+  localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
+}
+
+function openEnquiry() {
+  document.getElementById("enquirySuccess").style.display = "none";
+  document.getElementById("enquiryForm").classList.remove("hidden");
+  document.getElementById("enquiryModal").classList.add("open");
+}
+
+function openOwnerLogin() {
+  document.getElementById("loginError").textContent = "";
+  document.getElementById("ownerPassword").value = "";
+  document.getElementById("ownerModal").classList.add("open");
+}
+
+function closeModal(id) {
+  document.getElementById(id).classList.remove("open");
+}
+
+function closeDashboard() {
+  closeModal("dashboardModal");
+}
+
+document.getElementById("countryCode").addEventListener("change", function() {
+  const other = this.value === "other";
+  document.getElementById("otherCodeField").classList.toggle("hidden", !other);
+  document.getElementById("otherCode").required = other;
+});
+
+document.getElementById("enquiryForm").addEventListener("submit", function(event) {
+  event.preventDefault();
+
+  const codeChoice = document.getElementById("countryCode").value;
+  const otherCode = document.getElementById("otherCode").value.trim();
+  const code = codeChoice === "other" ? otherCode : codeChoice;
+  const mobile = document.getElementById("mobile").value.trim();
+  const email = document.getElementById("email").value.trim();
+
+  if (!/^\+[0-9]{1,4}$/.test(code)) {
+    alert("Please enter a valid country code.");
+    return;
+  }
+
+  if (!/^[0-9]{7,15}$/.test(mobile)) {
+    alert("Please enter a valid mobile number using digits only.");
+    return;
+  }
+
+  if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+    alert("Please enter a valid email address.");
+    return;
+  }
+
+  const enquiries = getEnquiries();
+  enquiries.unshift({
+    id: Date.now().toString() + Math.random().toString(36).slice(2, 7),
+    mobile: code + " " + mobile,
+    email: email,
+    submittedAt: new Date().toISOString()
+  });
+
+  try {
+    saveEnquiries(enquiries);
+    document.getElementById("enquiryForm").reset();
+    document.getElementById("otherCodeField").classList.add("hidden");
+    document.getElementById("otherCode").required = false;
+
+    const success = document.getElementById("enquirySuccess");
+    success.textContent = "Your enquiry has been saved in this browser demo. On a live website, connect a secure backend to deliver it to the owner.";
+    success.style.display = "block";
+    document.getElementById("enquiryForm").classList.add("hidden");
+  } catch {
+    alert("The enquiry could not be saved in this browser. Please try again.");
+  }
+});
+
+document.getElementById("ownerLoginForm").addEventListener("submit", function(event) {
+  event.preventDefault();
+
+  const password = document.getElementById("ownerPassword").value;
+  if (password !== OWNER_PASSWORD) {
+    document.getElementById("loginError").textContent = "Incorrect password. Please try again.";
+    return;
+  }
+
+  closeModal("ownerModal");
+  renderDashboard();
+  document.getElementById("dashboardModal").classList.add("open");
+});
+
+function renderDashboard() {
+  const enquiries = getEnquiries();
+  const today = new Date().toDateString();
+
+  document.getElementById("totalCount").textContent = enquiries.length;
+  document.getElementById("todayCount").textContent = enquiries.filter(
+    item => new Date(item.submittedAt).toDateString() === today
+  ).length;
+
+  document.getElementById("latestCount").textContent = enquiries.length
+    ? new Date(enquiries[0].submittedAt).toLocaleTimeString([], {hour:"2-digit", minute:"2-digit"})
+    : "—";
+
+  const list = document.getElementById("enquiryList");
+  list.replaceChildren();
+
+  if (!enquiries.length) {
+    const empty = document.createElement("div");
+    empty.className = "empty";
+    empty.textContent = "No enquiries yet. New demo submissions will appear here.";
+    list.appendChild(empty);
+    return;
+  }
+
+  enquiries.forEach(item => {
+    const card = document.createElement("article");
+    card.className = "enquiry-card";
+
+    const title = document.createElement("h3");
+    title.textContent = "Customer enquiry";
+
+    const mobile = document.createElement("p");
+    mobile.textContent = "Mobile: " + item.mobile;
+
+    const email = document.createElement("p");
+    email.textContent = "Email: " + item.email;
+
+    const date = document.createElement("p");
+    date.textContent = "Received: " + new Date(item.submittedAt).toLocaleString();
+
+    const remove = document.createElement("button");
+    remove.className = "delete";
+    remove.textContent = "Delete enquiry";
+    remove.addEventListener("click", () => {
+      if (!confirm("Delete this demo enquiry?")) return;
+      saveEnquiries(getEnquiries().filter(entry => entry.id !== item.id));
+      renderDashboard();
+    });
+
+    card.append(title, mobile, email, date, remove);
+    list.appendChild(card);
+  });
+}
+
+function exportEnquiries() {
+  const enquiries = getEnquiries();
+
+  if (!enquiries.length) {
+    alert("There are no enquiries to export.");
+    return;
+  }
+
+  const rows = [
+    ["Mobile", "Email", "Submitted At"],
+    ...enquiries.map(item => [item.mobile, item.email, item.submittedAt])
+  ];
+
+  const csv = rows.map(row =>
+    row.map(value => '"' + String(value).replace(/"/g, '""') + '"').join(",")
+  ).join("\r\n");
+
+  const url = URL.createObjectURL(new Blob(["\uFEFF" + csv], {
+    type: "text/csv;charset=utf-8;"
+  }));
+
+  const link = document.createElement("a");
+  link.href = url;
+  link.download = "website-enquiries.csv";
+  link.click();
+  URL.revokeObjectURL(url);
+}
+
+function clearEnquiries() {
+  if (!confirm("Delete all demo enquiries from this browser?")) return;
+  saveEnquiries([]);
+  renderDashboard();
+}
+
+// Close a modal when clicking outside its panel.
+document.querySelectorAll(".modal").forEach(modal => {
+  modal.addEventListener("click", event => {
+    if (event.target === modal) modal.classList.remove("open");
+  });
+});
+
+// Escape key closes open dialogs.
+document.addEventListener("keydown", event => {
+  if (event.key === "Escape") {
+    document.querySelectorAll(".modal.open").forEach(modal => {
+      modal.classList.remove("open");
+    });
+  }
+});
+
+// Reveal elements as they enter the screen.
+if ("IntersectionObserver" in window) {
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("visible");
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12 });
+
+  document.querySelectorAll(".reveal").forEach(el => observer.observe(el));
+} else {
+  document.querySelectorAll(".reveal").forEach(el => el.classList.add("visible"));
+}
+</script>
+
+</body>
+</html>
